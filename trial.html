@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب تجربة مجانية - IPTV Premium</title>
+    <meta name="description" content="اطلب تجربة مجانية لخدمة IPTV Premium لمدة 24 ساعة. اختبر جودة خدمتنا قبل الاشتراك.">
+    <meta name="keywords" content="تجربة IPTV مجانية, طلب تجربة IPTV, test IPTV, IPTV trial, تجربة 24 ساعة IPTV">
+    <meta name="author" content="IPTV Premium - عماد الدين لمراني">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="canonical" href="https://gpldroid.github.io/shop/trial.html">
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212123456789?text=مرحباً، أريد طلب تجربة مجانية لـ IPTV" class="whatsapp-btn" target="_blank" aria-label="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-tv"></i>
+                    IPTV Premium
+                </a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="trial.html" class="active">طلب تجربة</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                    <li><a href="terms.html">شروط الاستخدام</a></li>
+                    <li><a href="privacy.html">الخصوصية</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الليلي والنهاري">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="قائمة الهاتف">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>طلب تجربة مجانية</h1>
+            <p>جرب خدمتنا لمدة 24 ساعة مجاناً قبل الاشتراك</p>
+        </div>
+    </div>
+
+    <!-- Trial Content -->
+    <section class="container page-content">
+        <!-- Benefits -->
+        <div class="section-title">
+            <h2>مزايا التجربة المجانية</h2>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>24 ساعة كاملة</h3>
+                <p>استمتع بخدمتنا لمدة 24 ساعة كاملة دون أي قيود</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-tv"></i>
+                <h3>جميع القنوات</h3>
+                <p>وصول كامل لجميع القنوات والمحتوى المتاح</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-wifi"></i>
+                <h3>بدون تقطيع</h3>
+                <p>جودة عالية بدون تقطيع أو تعليق</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>دعم فني كامل</h3>
+                <p>دعم فني متاح خلال فترة التجربة</p>
+            </div>
+        </div>
+
+        <!-- Trial Form -->
+        <div style="margin-top: 60px;">
+            <div class="section-title">
+                <h2>طلب التجربة المجانية</h2>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <h3>تم إرسال طلبك بنجاح!</h3>
+                <p>سنقوم بالاتصال بك في أقرب وقت لإرسال بيانات تجربة السيرفر المجانية.</p>
+                <p>رقم الطلب: <strong id="orderNumber"></strong></p>
+                <p>سيصلك الرد خلال <strong>ساعة واحدة</strong> في أوقات العمل.</p>
+            </div>
+            
+            <!-- Trial Steps -->
+            <div class="trial-steps">
+                <div class="step active">
+                    <div class="step-icon"><i class="fas fa-user"></i></div>
+                    <div class="step-text">المعلومات الشخصية</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-tv"></i></div>
+                    <div class="step-text">تفاصيل الجهاز</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="step-text">التأكيد</div>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="trialForm">
+                <!-- Step 1: Personal Information -->
+                <div id="step1">
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">الخطوة 1: المعلومات الشخصية</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName">
+                            <i class="fas fa-user"></i> الاسم الكامل *
+                        </label>
+                        <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> البريد الإلكتروني *
+                        </label>
+                        <input type="email" id="email" placeholder="example@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i> رقم الهاتف (واتساب) *
+                        </label>
+                        <input type="tel" id="phone" placeholder="+212 123-456-789" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">
+                            <i class="fas fa-globe"></i> البلد *
+                        </label>
+                        <select id="country" required>
+                            <option value="">اختر البلد</option>
+                            <option value="morocco">المغرب</option>
+                            <option value="algeria">الجزائر</option>
+                            <option value="tunisia">تونس</option>
+                            <option value="egypt">مصر</option>
+                            <option value="saudi">السعودية</option>
+                            <option value="uae">الإمارات</option>
+                            <option value="qatar">قطر</option>
+                            <option value="kuwait">الكويت</option>
+                            <option value="bahrain">البحرين</option>
+                            <option value="oman">عمان</option>
+                            <option value="jordan">الأردن</option>
+                            <option value="lebanon">لبنان</option>
+                            <option value="other">دولة أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="plan-btn" onclick="nextStep(2)">
+                        <i class="fas fa-arrow-left"></i> التالي
+                    </button>
+                </div>
+                
+                <!-- Step 2: Device Details -->
+                <div id="step2" style="display: none;">
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">الخطوة 2: تفاصيل الجهاز</h3>
+                    
+                    <div class="form-group">
+                        <label for="deviceType">
+                            <i class="fas fa-tv"></i> نوع الجهاز *
+                        </label>
+                        <select id="deviceType" required>
+                            <option value="">اختر نوع الجهاز</option>
+                            <option value="smarttv">سمارت TV (Samsung, LG, Sony, etc.)</option>
+                            <option value="android">هاتف أو تابلت أندرويد</option>
+                            <option value="ios">آيفون أو آيباد</option>
+                            <option value="mag">جهاز MAG</option>
+                            <option value="formuler">جهاز Formuler</option>
+                            <option value="firestick">أمازون فايرستيك</option>
+                            <option value="androidbox">جهاز أندرويد بوكس</option>
+                            <option value="pc">كمبيوتر (Windows/Mac)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deviceModel">
+                            <i class="fas fa-microchip"></i> موديل الجهاز (اختياري)
+                        </label>
+                        <input type="text" id="deviceModel" placeholder="مثال: Samsung QLED 2022, iPhone 14 Pro">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="internetSpeed">
+                            <i class="fas fa-wifi"></i> سرعة الإنترنت لديك *
+                        </label>
+                        <select id="internetSpeed" required>
+                            <option value="">اختر سرعة الإنترنت</option>
+                            <option value="slow">بطيئة (أقل من 10 ميجابت)</option>
+                            <option value="medium">متوسطة (10-50 ميجابت)</option>
+                            <option value="fast">سريعة (أكثر من 50 ميجابت)</option>
+                            <option value="fiber">الألياف البصرية (100+ ميجابت)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="previousExperience">
+                            <i class="fas fa-history"></i> هل جربت خدمة IPTV من قبل؟
+                        </label>
+                        <select id="previousExperience">
+                            <option value="no">لا، هذه أول مرة</option>
+                            <option value="yes">نعم، جربت خدمات أخرى</option>
+                            <option value="current">نعم، لدي اشتراك حالياً</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button type="button" class="plan-btn" style="background: var(--secondary);" onclick="prevStep(1)">
+                            <i class="fas fa-arrow-right"></i> رجوع
+                        </button>
+                        <button type="button" class="plan-btn" onclick="nextStep(3)">
+                            <i class="fas fa-arrow-left"></i> التالي
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Confirmation -->
+                <div id="step3" style="display: none;">
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">الخطوة 3: مراجعة وتأكيد</h3>
+                    
+                    <div style="background: var(--hover-color); padding: 25px; border-radius: var(--border-radius); margin-bottom: 25px; border: 1px solid var(--border-color);">
+                        <h4 style="margin-bottom: 20px; color: var(--primary); text-align: center;">
+                            <i class="fas fa-file-alt"></i> تفاصيل الطلب
+                        </h4>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div>
+                                <p><strong><i class="fas fa-user"></i> الاسم:</strong></p>
+                                <p id="reviewName" style="color: var(--text-color); margin-right: 10px;"></p>
+                            </div>
+                            
+                            <div>
+                                <p><strong><i class="fas fa-envelope"></i> البريد الإلكتروني:</strong></p>
+                                <p id="reviewEmail" style="color: var(--text-color); margin-right: 10px;"></p>
+                            </div>
+                            
+                            <div>
+                                <p><strong><i class="fas fa-phone"></i> رقم الهاتف:</strong></p>
+                                <p id="reviewPhone" style="color: var(--text-color); margin-right: 10px;"></p>
+                            </div>
+                            
+                            <div>
+                                <p><strong><i class="fas fa-globe"></i> البلد:</strong></p>
+                                <p id="reviewCountry" style="color: var(--text-color); margin-right: 10px;"></p>
+                            </div>
+                            
+                            <div>
+                                <p><strong><i class="fas fa-tv"></i> نوع الجهاز:</strong></p>
+                                <p id="reviewDevice" style="color: var(--text-color); margin-right: 10px;"></p>
+                            </div>
+                            
+                            <div>
+                                <p><strong><i class="fas fa-wifi"></i> سرعة الإنترنت:</strong></p>
+                                <p id="reviewSpeed" style="color: var(--text-color); margin-right: 10px;"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>أوافق على <a href="terms.html" style="color: var(--primary);">شروط الاستخدام</a> و <a href="privacy.html" style="color: var(--primary);">سياسة الخصوصية</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">
+                            <i class="fas fa-sticky-note"></i> ملاحظات إضافية (اختياري)
+                        </label>
+                        <textarea id="notes" placeholder="أي ملاحظات أو استفسارات إضافية... (مثل: توقيت مفضل للاتصال، طلبات خاصة، إلخ)"></textarea>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <button type="button" class="plan-btn" style="background: var(--secondary);" onclick="prevStep(2)">
+                            <i class="fas fa-arrow-right"></i> رجوع
+                        </button>
+                        <button type="submit" class="plan-btn">
+                            <i class="fas fa-paper-plane"></i> إرسال الطلب
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- What Happens Next -->
+        <div style="margin-top: 60px; background: var(--hover-color); padding: 30px; border-radius: var(--border-radius);">
+            <h3 style="color: var(--primary); margin-bottom: 20px; text-align: center;">
+                <i class="fas fa-question-circle"></i> ماذا يحدث بعد إرسال الطلب؟
+            </h3>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>مراجعة الطلب</h4>
+                    <p>سيتم مراجعة طلبك خلال ساعة واحدة في أوقات العمل</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>الاتصال بك</h4>
+                    <p>سنتصل بك على الواتساب أو الهاتف لتأكيد الطلب</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>إرسال البيانات</h4>
+                    <p>سنرسل لك بيانات الدخول على البريد الإلكتروني أو واتساب</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>بدء التجربة</h4>
+                    <p>مدة التجربة المجانية 24 ساعة من وقت تفعيلها</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <p><strong>ملاحظة:</strong> يمكنك التواصل معنا على واتساب لأي استفسار أو في حال عدم وصول البيانات خلال ساعتين.</p>
+                <a href="https://wa.me/212123456789" target="_blank" class="btn" style="margin-top: 15px;">
+                    <i class="fab fa-whatsapp"></i> تواصل معنا على واتساب
+                </a>
+            </div>
+        </div>
+
+        <!-- Trial Terms -->
+        <div style="margin-top: 50px;">
+            <h3 style="color: var(--primary); margin-bottom: 20px;">
+                <i class="fas fa-info-circle"></i> شروط التجربة المجانية
+            </h3>
+            
+            <div style="background: var(--card-bg); padding: 20px; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                <ul style="list-style-position: inside; margin-right: 20px;">
+                    <li style="margin-bottom: 10px;">التجربة المجانية متاحة مرة واحدة لكل عميل</li>
+                    <li style="margin-bottom: 10px;">مدة التجربة 24 ساعة فقط من وقت التفعيل</li>
+                    <li style="margin-bottom: 10px;">يجب توفير معلومات صحيحة وكاملة</li>
+                    <li style="margin-bottom: 10px;">التجربة لا تشمل بعض القنوات الخاصة والمدفوعة</li>
+                    <li style="margin-bottom: 10px;">يجب أن يكون لديك اتصال إنترنت مستقر</li>
+                    <li style="margin-bottom: 10px;">نحتفظ بالحق في رفض أي طلب دون إبداء الأسباب</li>
+                    <li style="margin-bottom: 10px;">التجربة تهدف فقط لاختبار الجودة والاستقرار</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">IPTV Premium</div>
+                    <p>أفضل خدمة IPTV في السوق، نقدم باقات اشتراك مرنة تناسب جميع الاحتياجات مع جودة فائقة واستقرار ممتاز.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="sitemap.html" style="color: #bbb; margin-left: 15px; font-size: 1.2rem;" aria-label="خريطة الموقع"><i class="fas fa-sitemap"></i></a>
+                        <a href="dmca.html" style="color: #bbb; margin-left: 15px; font-size: 1.2rem;" aria-label="سياسة DMCA"><i class="fas fa-balance-scale"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="trial.html">طلب تجربة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="terms.html">شروط الاستخدام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-phone"></i> +212 123-456-789</p>
+                    <p><i class="fas fa-envelope"></i> support@iptvpremium.com</p>
+                    <p><i class="fab fa-whatsapp"></i> واتساب: 24/7</p>
+                    <div style="margin-top: 20px;">
+                        <a href="https://wa.me/212123456789" target="_blank" style="color: white; background: #25D366; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-left: 10px;" aria-label="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com/iptvpremium" target="_blank" style="color: white; background: #1877F2; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-left: 10px;" aria-label="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/iptvpremium" target="_blank" style="color: white; background: #1DA1F2; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-left: 10px;" aria-label="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                جميع الحقوق محفوظة &copy; 2023 <strong>عماد الدين لمراني</strong>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Trial Page Specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Trial Form Steps Management
+        let currentStep = 1;
+        
+        function nextStep(step) {
+            // Validate current step
+            if (step === 2 && !validateStep1()) return;
+            if (step === 3 && !validateStep2()) return;
+            
+            // Hide current step
+            document.getElementById(`step${currentStep}`).style.display = 'none';
+            
+            // Show next step
+            document.getElementById(`step${step}`).style.display = 'block';
+            
+            // Update steps visualization
+            updateStepsVisualization(step);
+            
+            // Update review information
+            if (step === 3) {
+                updateReviewInfo();
+            }
+            
+            currentStep = step;
+        }
+        
+        function prevStep(step) {
+            // Hide current step
+            document.getElementById(`step${currentStep}`).style.display = 'none';
+            
+            // Show previous step
+            document.getElementById(`step${step}`).style.display = 'block';
+            
+            // Update steps visualization
+            updateStepsVisualization(step);
+            
+            currentStep = step;
+        }
+        
+        function updateStepsVisualization(step) {
+            document.querySelectorAll('.step').forEach((s, index) => {
+                if (index + 1 <= step) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        }
+        
+        function validateStep1() {
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const country = document.getElementById('country').value;
+            
+            if (!name || !email || !phone || !country) {
+                alert('يرجى ملء جميع الحقول المطلوبة في الخطوة الأولى');
+                return false;
+            }
+            
+            // Simple email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('يرجى إدخال بريد إلكتروني صحيح');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function validateStep2() {
+            const deviceType = document.getElementById('deviceType').value;
+            const internetSpeed = document.getElementById('internetSpeed').value;
+            
+            if (!deviceType || !internetSpeed) {
+                alert('يرجى ملء جميع الحقول المطلوبة في الخطوة الثانية');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function updateReviewInfo() {
+            document.getElementById('reviewName').textContent = document.getElementById('fullName').value;
+            document.getElementById('reviewEmail').textContent = document.getElementById('email').value;
+            document.getElementById('reviewPhone').textContent = document.getElementById('phone').value;
+            document.getElementById('reviewCountry').textContent = document.getElementById('country').options[document.getElementById('country').selectedIndex].text;
+            document.getElementById('reviewDevice').textContent = document.getElementById('deviceType').options[document.getElementById('deviceType').selectedIndex].text;
+            document.getElementById('reviewSpeed').textContent = document.getElementById('internetSpeed').options[document.getElementById('internetSpeed').selectedIndex].text;
+        }
+        
+        // Trial form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const trialForm = document.getElementById('trialForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            if (trialForm) {
+                trialForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    if (!document.getElementById('agreeTerms').checked) {
+                        alert('يرجى الموافقة على شروط الاستخدام وسياسة الخصوصية');
+                        return;
+                    }
+                    
+                    // Generate random order number
+                    const orderNum = 'TR' + Date.now().toString().slice(-8);
+                    document.getElementById('orderNumber').textContent = orderNum;
+                    
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Hide form
+                    trialForm.style.display = 'none';
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Prepare form data
+                    const formData = {
+                        name: document.getElementById('fullName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        country: document.getElementById('country').value,
+                        device: document.getElementById('deviceType').value,
+                        deviceModel: document.getElementById('deviceModel').value,
+                        internetSpeed: document.getElementById('internetSpeed').value,
+                        previousExperience: document.getElementById('previousExperience').value,
+                        notes: document.getElementById('notes').value,
+                        orderNumber: orderNum,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    console.log('Trial request submitted:', formData);
+                    
+                    // Show success notification
+                    showNotification('تم إرسال طلبك بنجاح! سنتصل بك قريباً.', 'success');
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // Notification function
+            function showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.innerHTML = `
+                    <div style="padding: 15px; border-radius: 5px; background: ${type === 'success' ? '#d4edda' : '#f8d7da'}; 
+                         color: ${type === 'success' ? '#155724' : '#721c24'}; margin: 10px 0; border: 1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'};">
+                        <strong>${type === 'success' ? '✅' : '⚠️'}</strong> ${message}
+                    </div>
+                `;
+                
+                // Insert at the beginning of the page content
+                const pageContent = document.querySelector('.page-content');
+                if (pageContent) {
+                    pageContent.insertBefore(notification, pageContent.firstChild);
+                    
+                    // Remove notification after 5 seconds
+                    setTimeout(() => {
+                        notification.style.opacity = '0';
+                        notification.style.transition = 'opacity 0.5s';
+                        setTimeout(() => {
+                            if (notification.parentNode) {
+                                notification.parentNode.removeChild(notification);
+                            }
+                        }, 500);
+                    }, 5000);
+                }
+            }
+            
+            // Add structured data for trial page
+            const trialStructuredData = {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "طلب تجربة مجانية - IPTV Premium",
+                "description": "اطلب تجربة مجانية لخدمة IPTV Premium لمدة 24 ساعة",
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "الرئيسية",
+                            "item": "https://gpldroid.github.io/shop/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "طلب تجربة مجانية",
+                            "item": "https://gpldroid.github.io/shop/trial.html"
+                        }
+                    ]
+                }
+            };
+            
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.textContent = JSON.stringify(trialStructuredData);
+            document.head.appendChild(script);
+        });
+    </script>
+</body>
+</html>
