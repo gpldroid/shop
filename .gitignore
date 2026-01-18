@@ -1,0 +1,37 @@
+# ملفات النظام
+.DS_Store
+Thumbs.db
+
+# ملفات IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ملفات npm
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# ملفات بيئية
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ملفات البناء
+dist/
+build/
+
+# ملفات نظام التشغيل
+*.log
+*.tmp
+*.temp
+
+# ملفات النسخ الاحتياطي
+*.bak
+*.backup
+
+# ملفات البيانات المؤقتة
+*.cache
