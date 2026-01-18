@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV Premium - اشتراكات IPTV عالية الجودة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --secondary: #6c757d;
+            --success: #198754;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-left: 10px;
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        /* Subscription Plans */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 2.2rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .plan-card.popular {
+            border: 2px solid var(--primary);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            left: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(-45deg);
+            font-size: 0.8rem;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .plan-features li i {
+            color: var(--success);
+            margin-left: 10px;
+        }
+
+        .plan-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .plan-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Test Server */
+        .test-server {
+            background: var(--gradient);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .test-server h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .test-server p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Page Content */
+        .page-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: 50px 0;
+            min-height: 400px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            right: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            margin-left: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: var(--gradient);
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .page-content {
+                padding: 25px;
+            }
+        }
+
+        /* Page-specific styles */
+        #about, #contact, #privacy, #dmca, #sitemap {
+            display: none;
+        }
+        
+        .active-page {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212123456789?text=مرحباً، أنا مهتم باشتراكات IPTV لديكم" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo" onclick="showPage('home')">
+                    <i class="fas fa-tv"></i>
+                    IPTV Premium
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" onclick="showPage('home')">الرئيسية</a></li>
+                    <li><a href="#" onclick="showPage('about')">من نحن</a></li>
+                    <li><a href="#" onclick="showPage('contact')">اتصل بنا</a></li>
+                    <li><a href="#" onclick="showPage('privacy')">سياسة الخصوصية</a></li>
+                    <li><a href="#" onclick="showPage('dmca')">DMCA</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero active-page" id="home">
+        <div class="container">
+            <h1>أفضل خدمة IPTV عالية الجودة</h1>
+            <p>استمتع بأكثر من 10,000 قناة تلفزيونية بجودة عالية FHD و 4K، مع مكتبة أفلام ومسلسلات متجددة يومياً. خدمة مستقرة وسريعة على جميع الأجهزة.</p>
+            <a href="#plans" class="btn">عرض الباقات</a>
+        </div>
+    </section>
+
+    <!-- Subscription Plans -->
+    <section class="container">
+        <h2 class="section-title">باقات الاشتراكات</h2>
+        <div class="plans-container" id="plans">
+            <!-- 3 Months Plan -->
+            <div class="plan-card">
+                <div class="plan-name">3 أشهر</div>
+                <div class="plan-price">150 <span>درهم/شهرياً</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> أكثر من 10,000 قناة</li>
+                    <li><i class="fas fa-check"></i> جودة FHD و 4K</li>
+                    <li><i class="fas fa-check"></i> دعم جميع الأجهزة</li>
+                    <li><i class="fas fa-check"></i> تحديث مستمر للقنوات</li>
+                    <li><i class="fas fa-check"></i> خدمة عملاء 24/7</li>
+                </ul>
+                <button class="plan-btn" onclick="orderPlan('3 أشهر')">اشتري الآن</button>
+            </div>
+            
+            <!-- 6 Months Plan -->
+            <div class="plan-card popular">
+                <div class="popular-badge">الأكثر مبيعاً</div>
+                <div class="plan-name">6 أشهر</div>
+                <div class="plan-price">130 <span>درهم/شهرياً</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> أكثر من 10,000 قناة</li>
+                    <li><i class="fas fa-check"></i> جودة FHD و 4K</li>
+                    <li><i class="fas fa-check"></i> دعم جميع الأجهزة</li>
+                    <li><i class="fas fa-check"></i> تحديث مستمر للقنوات</li>
+                    <li><i class="fas fa-check"></i> خدمة عملاء 24/7</li>
+                    <li><i class="fas fa-check"></i> قنوات رياضية خاصة</li>
+                </ul>
+                <button class="plan-btn" onclick="orderPlan('6 أشهر')">اشتري الآن</button>
+            </div>
+            
+            <!-- 12 Months Plan -->
+            <div class="plan-card">
+                <div class="plan-name">12 شهر</div>
+                <div class="plan-price">100 <span>درهم/شهرياً</span></div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> أكثر من 10,000 قناة</li>
+                    <li><i class="fas fa-check"></i> جودة FHD و 4K</li>
+                    <li><i class="fas fa-check"></i> دعم جميع الأجهزة</li>
+                    <li><i class="fas fa-check"></i> تحديث مستمر للقنوات</li>
+                    <li><i class="fas fa-check"></i> خدمة عملاء 24/7</li>
+                    <li><i class="fas fa-check"></i> قنوات رياضية خاصة</li>
+                    <li><i class="fas fa-check"></i> +3000 فيلم شهرياً</li>
+                </ul>
+                <button class="plan-btn" onclick="orderPlan('12 شهر')">اشتري الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Server Section -->
+    <section class="test-server">
+        <div class="container">
+            <h2>جرب السيرفر مجاناً لمدة 24 ساعة</h2>
+            <p>احصل على تجربة مجانية للسيرفر لمدة 24 ساعة لتختبر جودة وقوة خدمتنا قبل الاشتراك. فقط املأ النموذج وسنرسل لك بيانات الدخول فوراً.</p>
+            <a href="#" class="btn" onclick="showPage('contact')">اطلب تجربة مجانية</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="container">
+        <h2 class="section-title">لماذا تختار خدمتنا؟</h2>
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-broadcast-tower"></i>
+                <h3>بث مستقر</h3>
+                <p>خوادم سريعة ومستقرة تضمن لك مشاهدة بدون تقطيع أو تعليق</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-film"></i>
+                <h3>محتوى حصري</h3>
+                <p>آلاف القنوات والأفلام والمسلسلات بأعلى جودة FHD و 4K</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>دعم فني 24/7</h3>
+                <p>فريق دعم فني متاح على مدار الساعة لمساعدتك في أي استفسار</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>متعدد الأجهزة</h3>
+                <p>متوافق مع جميع الأجهزة: Smart TV, Android, iOS, PC</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Page -->
+    <section id="about" class="container page-content">
+        <h2 class="section-title">من نحن</h2>
+        <div style="margin-top: 40px;">
+            <p>نحن <strong>IPTV Premium</strong>، مزود خدمة IPTV رائد في السوق، نقدم حلول بث تلفزيوني عبر الإنترنت منذ عام 2018. نفتخر بتقديم خدمة عالية الجودة لعشرات الآلاف من العملاء الراضين في جميع أنحاء العالم.</p>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">رؤيتنا</h3>
+            <p>أن نكون الخيار الأول للمشاهد العربي الراغب في تجربة تلفزيونية متطورة وشاملة، تجمع بين الجودة العالية والاستقرار وتنوع المحتوى.</p>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">مهمتنا</h3>
+            <p>توفير خدمة IPTV متكاملة تغطي جميع احتياجات المشاهدين، من القنوات التلفزيونية المحلية والعالمية إلى أحدث الأفلام والمسلسلات، مع ضمان تجربة مشاهدة سلسة وخالية من المشاكل التقنية.</p>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">قيمنا</h3>
+            <ul style="list-style-position: inside; margin-right: 20px;">
+                <li style="margin-bottom: 10px;">الجودة: نحرص على تقديم محتوى بأعلى جودة ممكنة</li>
+                <li style="margin-bottom: 10px;">الموثوقية: خدمة مستقرة ومتاحة على مدار الساعة</li>
+                <li style="margin-bottom: 10px;">الدعم: فريق دعم فني متخصص ومتواصل</li>
+                <li style="margin-bottom: 10px;">التطوير: نطور خدماتنا باستمرار لتلبية احتياجات العملاء</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="container page-content">
+        <h2 class="section-title">اتصل بنا</h2>
+        <div style="margin-top: 40px;">
+            <p>للاستفسار عن الباقات أو طلب تجربة مجانية، يمكنك التواصل معنا عبر:</p>
+            
+            <div class="features" style="margin: 40px 0;">
+                <div class="feature-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>واتساب</h3>
+                    <p>+212 123-456-789</p>
+                    <a href="https://wa.me/212123456789?text=مرحباً، أنا مهتم باشتراكات IPTV لديكم" class="plan-btn" style="margin-top: 15px;" target="_blank">تواصل عبر واتساب</a>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>البريد الإلكتروني</h3>
+                    <p>support@iptvpremium.com</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>ساعات العمل</h3>
+                    <p>24/7 على مدار الساعة</p>
+                </div>
+            </div>
+            
+            <h3 style="margin: 40px 0 20px; color: var(--primary);">طلب تجربة مجانية</h3>
+            <p>املأ النموذج التالي للحصول على تجربة مجانية لمدة 24 ساعة:</p>
+            
+            <form class="contact-form" id="trialForm">
+                <div class="form-group">
+                    <label for="name">الاسم الكامل</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف (واتساب)</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="device">نوع الجهاز</label>
+                    <select id="device" required>
+                        <option value="">اختر نوع الجهاز</option>
+                        <option value="android">أندرويد</option>
+                        <option value="ios">آيفون/آيباد</option>
+                        <option value="smarttv">سمارت TV</option>
+                        <option value="pc">كمبيوتر</option>
+                        <option value="mag">جهاز MAG</option>
+                    </select>
+                </div>
+                <button type="submit" class="plan-btn" style="width: 100%;">طلب تجربة مجانية</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Page -->
+    <section id="privacy" class="container page-content">
+        <h2 class="section-title">سياسة الخصوصية</h2>
+        <div style="margin-top: 40px;">
+            <p>تشرح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك الشخصية عند استخدامك لخدماتنا.</p>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">المعلومات التي نجمعها</h3>
+            <p>قد نجمع المعلومات التالية عند استخدامك لخدماتنا:</p>
+            <ul style="list-style-position: inside; margin-right: 20px;">
+                <li style="margin-bottom: 10px;">معلومات الهوية الشخصية (الاسم، عنوان البريد الإلكتروني، رقم الهاتف)</li>
+                <li style="margin-bottom: 10px;">معلومات الدفع (لا نقوم بتخزين بيانات بطاقات الائتمان)</li>
+                <li style="margin-bottom: 10px;">معلومات الاستخدام والتفضيلات</li>
+                <li style="margin-bottom: 10px;">معلومات الجهاز وعنوان IP</li>
+            </ul>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">كيف نستخدم معلوماتك</h3>
+            <p>نستخدم معلوماتك الشخصية للأغراض التالية:</p>
+            <ul style="list-style-position: inside; margin-right: 20px;">
+                <li style="margin-bottom: 10px;">توفير خدمات IPTV وتحسينها</li>
+                <li style="margin-bottom: 10px;">معالجة المدفوعات والاشتراكات</li>
+                <li style="margin-bottom: 10px;">تقديم الدعم الفني والرد على استفساراتك</li>
+                <li style="margin-bottom: 10px;">إرسال تحديثات مهمة حول الخدمة</li>
+            </ul>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">حماية المعلومات</h3>
+            <p>نلتزم بحماية معلوماتك الشخصية ونستخدم تدابير أمنية مناسبة لمنع الوصول غير المصرح به أو الكشف عنها.</p>
+            
+            <p style="margin-top: 30px; font-style: italic;">آخر تحديث: يونيو 2023</p>
+        </div>
+    </section>
+
+    <!-- DMCA Page -->
+    <section id="dmca" class="container page-content">
+        <h2 class="section-title">سياسة DMCA</h2>
+        <div style="margin-top: 40px;">
+            <p>نحن نحترم حقوق الملكية الفكرية للآخرين ونتوقع من مستخدمينا أن يفعلوا ذلك أيضاً. تماشياً مع قانون الألفية الجديدة لحقوق طبع ونشر المواد الرقمية (DMCA)، سنستجيب بسرعة لأي إشعارات بانتهاك حقوق الطبع والنشر التي تتوافق مع DMCA.</p>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">الإبلاغ عن انتهاك حقوق الطبع والنشر</h3>
+            <p>إذا كنت تعتقد أن محتوى على خدمتنا ينتهك حقوق الطبع والنشر الخاصة بك، يرجى تقديم إشعار كتابي يتضمن المعلومات التالية:</p>
+            <ul style="list-style-position: inside; margin-right: 20px;">
+                <li style="margin-bottom: 10px;">توقيع مادي أو إلكتروني من صاحب حقوق الطبع والنشر أو الشخص المخول بالتصرف نيابة عنه</li>
+                <li style="margin-bottom: 10px;">تحديد العمل المحمي بحقوق الطبع والنشر الذي تدعي انتهاكه</li>
+                <li style="margin-bottom: 10px;">تحديد المواد التي تدعي انتهاكها ومعلومات كافية للسماح لنا بتحديد موقعها</li>
+                <li style="margin-bottom: 10px;">معلومات الاتصال الخاصة بك بما في ذلك العنوان ورقم الهاتف وعنوان البريد الإلكتروني</li>
+                <li style="margin-bottom: 10px;">بيان يفيد بأنك تعتقد بحسن نية أن استخدام المواد المذكورة غير مصرح به من قبل صاحب حقوق الطبع والنشر أو وكيله أو القانون</li>
+            </ul>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">إرسال الإشعارات</h3>
+            <p>يرجى إرسال إشعارات انتهاك حقوق الطبع والنشر إلى:</p>
+            <p><strong>البريد الإلكتروني:</strong> dmca@iptvpremium.com</p>
+            
+            <h3 style="margin: 30px 0 15px; color: var(--primary);">الإجراءات المتخذة</h3>
+            <p>عند استلام إشعار DMCA صالح، سنقوم بإزالة أو تعطيل الوصول إلى المواد التي تدعي انتهاكها، وسنخطر المستخدم المسؤول بتدابيرنا.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">IPTV Premium</div>
+                    <p>أفضل خدمة IPTV في السوق، نقدم باقات اشتراك مرنة تناسب جميع الاحتياجات مع جودة فائقة واستقرار ممتاز.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">الرئيسية</a></li>
+                        <li><a href="#" onclick="showPage('about')">من نحن</a></li>
+                        <li><a href="#" onclick="showPage('contact')">اتصل بنا</a></li>
+                        <li><a href="#" onclick="showPage('privacy')">سياسة الخصوصية</a></li>
+                        <li><a href="#" onclick="showPage('dmca')">DMCA</a></li>
+                        <li><a href="#" onclick="showPage('sitemap')">خريطة الموقع</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-phone"></i> +212 123-456-789</p>
+                    <p><i class="fas fa-envelope"></i> support@iptvpremium.com</p>
+                    <p><i class="fab fa-whatsapp"></i> واتساب: 24/7</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                جميع الحقوق محفوظة &copy; 2023 <strong>عماد الدين لمراني</strong>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content, .hero, .test-server');
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            // Hide sections that aren't page-content
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (!section.classList.contains('page-content') && 
+                    !section.classList.contains('hero') && 
+                    !section.classList.contains('test-server') &&
+                    section.id !== 'plans-section') {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Show the selected page
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.add('active-page');
+                
+                // If home page, show all sections
+                if (pageId === 'home') {
+                    sections.forEach(section => {
+                        if (!section.classList.contains('page-content')) {
+                            section.style.display = 'block';
+                        }
+                    });
+                }
+            }
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Order plan function
+        function orderPlan(planName) {
+            showPage('contact');
+            alert(`شكراً لاختيارك باقة ${planName}. يرجى ملء النموذج وسنتواصل معك قريباً لإتمام عملية الشراء.`);
+        }
+        
+        // Trial form submission
+        const trialForm = document.getElementById('trialForm');
+        if (trialForm) {
+            trialForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('شكراً لطلبك! سنتصل بك في أقرب وقت لإرسال بيانات تجربة السيرفر المجانية.');
+                trialForm.reset();
+            });
+        }
+        
+        // Sitemap page
+        const sitemapPage = document.createElement('section');
+        sitemapPage.id = 'sitemap';
+        sitemapPage.className = 'container page-content';
+        sitemapPage.innerHTML = `
+            <h2 class="section-title">خريطة الموقع</h2>
+            <div style="margin-top: 40px;">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">صفحات الموقع</h3>
+                <ul style="list-style-position: inside; margin-right: 20px; font-size: 1.1rem;">
+                    <li style="margin-bottom: 15px;"><a href="#" onclick="showPage('home')" style="color: var(--primary); text-decoration: none;">الرئيسية</a> - الصفحة الرئيسية للموقع وعرض الباقات</li>
+                    <li style="margin-bottom: 15px;"><a href="#" onclick="showPage('about')" style="color: var(--primary); text-decoration: none;">من نحن</a> - معلومات عن الشركة ورؤيتها ورسالتها</li>
+                    <li style="margin-bottom: 15px;"><a href="#" onclick="showPage('contact')" style="color: var(--primary); text-decoration: none;">اتصل بنا</a> - طرق التواصل وطلب التجربة المجانية</li>
+                    <li style="margin-bottom: 15px;"><a href="#" onclick="showPage('privacy')" style="color: var(--primary); text-decoration: none;">سياسة الخصوصية</a> - كيفية جمع واستخدام البيانات</li>
+                    <li style="margin-bottom: 15px;"><a href="#" onclick="showPage('dmca')" style="color: var(--primary); text-decoration: none;">سياسة DMCA</a> - سياسة حقوق الطبع والنشر</li>
+                </ul>
+                
+                <h3 style="margin: 40px 0 20px; color: var(--primary);">باقات الاشتراك</h3>
+                <ul style="list-style-position: inside; margin-right: 20px; font-size: 1.1rem;">
+                    <li style="margin-bottom: 10px;">باقة 3 أشهر - 150 درهم شهرياً</li>
+                    <li style="margin-bottom: 10px;">باقة 6 أشهر - 130 درهم شهرياً (الأكثر مبيعاً)</li>
+                    <li style="margin-bottom: 10px;">باقة 12 شهر - 100 درهم شهرياً</li>
+                </ul>
+            </div>
+        `;
+        document.body.insertBefore(sitemapPage, document.querySelector('footer'));
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show home page by default
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
